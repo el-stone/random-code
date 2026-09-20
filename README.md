@@ -8,10 +8,10 @@
 Collision-resistant ID generator for Node.js. Each ID combines a machine fingerprint, a per-process session, a time-based counter and (optionally) secure randomness, with a customizable length.
 
 ```js
-import { generateId } from "@el-stone/random-code"
+import { generateCode } from "@el-stone/random-code"
 
-generateId() // "FWLU2YTZHIT6NEEIXFCCBK339TUMA3GM"
-generateId(48) // "FWLU2YTYPCXUGFIUD7ADYDYHARBP4I7ASZB8OJI363725QUU"
+generateCode() // "FWLU2YTZHIT6NEEIXFCCBK339TUMA3GM"
+generateCode(48) // "FWLU2YTYPCXUGFIUD7ADYDYHARBP4I7ASZB8OJI363725QUU"
 ```
 
 ## Features
@@ -42,9 +42,16 @@ Each ID costs 8 HMAC-SHA256 calls, which is what keeps the timestamp unreadable.
 npm install @el-stone/random-code
 ```
 
+Using Yarn:
+
+```bash
+yarn add @el-stone/random-code
+```
+
+Using pnpm:
+
 ```bash
 pnpm add @el-stone/random-code
-yarn add @el-stone/random-code
 ```
 
 Requires **Node.js 18 or later**.
@@ -52,36 +59,36 @@ Requires **Node.js 18 or later**.
 ## Usage
 
 ```ts
-import { generateId } from "@el-stone/random-code"
+import { generateCode } from "@el-stone/random-code"
 
-const id = generateId() // 32 characters
-const longId = generateId(64) // 64 characters
+const id = generateCode() // 32 characters
+const longId = generateCode(64) // 64 characters
 ```
 
 CommonJS:
 
 ```js
-const { generateId } = require("@el-stone/random-code")
+const { generateCode } = require("@el-stone/random-code")
 
-const id = generateId()
+const id = generateCode()
 ```
 
 ## API
 
-### `generateId(length?: number): string`
+### `generateCode(length?: number): string`
 
-| Parameter | Type     | Default | Description                                     |
-| --------- | -------- | ------- | ----------------------------------------------- |
+| Parameter | Type     | Default | Description                                    |
+| --------- | -------- | ------- | ---------------------------------------------- |
 | `length`  | `number` | `32`    | Length of the ID. Must be a safe integer ≥ 32. |
 
 Returns a string of exactly `length` characters, each one in `A-Z1-9`.
 
 **Errors**
 
-| Error        | When                                                                          |
-| ------------ | ----------------------------------------------------------------------------- |
-| `TypeError`  | `length` is not a safe integer (`32.5`, `NaN`, `Infinity`, ...)               |
-| `RangeError` | `length` is lower than 32                                                     |
+| Error        | When                                                                            |
+| ------------ | ------------------------------------------------------------------------------- |
+| `TypeError`  | `length` is not a safe integer (`32.5`, `NaN`, `Infinity`, ...)                 |
+| `RangeError` | `length` is lower than 32                                                       |
 | `Error`      | The system clock is before 2026-01-01, or past the generator's capacity (~2165) |
 
 ## How it works
@@ -119,6 +126,12 @@ npm test            # run the test suite
 npm run bench       # build, then measure IDs generated per second
 ```
 
+Clone the repository:
+
+```bash
+git clone https://github.com/el-stone/random-code.git
+```
+
 ## Contributing
 
 This is an open-source project, contributions are welcome.
@@ -126,6 +139,11 @@ This is an open-source project, contributions are welcome.
 - Source code: [github.com/el-stone/random-code](https://github.com/el-stone/random-code)
 - Bug reports and feature requests: [GitHub Issues](https://github.com/el-stone/random-code/issues)
 - Pull requests: fork the repository, make your change with tests (`npm test`), then open a pull request.
+
+## Support
+
+If you find this package useful, consider giving the project a ⭐ on GitHub.
+For bugs, feature requests, or suggestions, please open an issue on the GitHub repository.
 
 ## License
 

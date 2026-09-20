@@ -394,7 +394,7 @@ function encodeBase35(value: bigint, length: number): string {
 /*
  * PUBLIC API
  */
-export function generateId(length = MIN_LENGTH): string {
+export function generateCode(length = MIN_LENGTH): string {
   if (!Number.isSafeInteger(length)) {
     throw new TypeError("length must be a safe integer")
   }

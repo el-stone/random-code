@@ -1,4 +1,4 @@
-import { generateId } from "../dist/index.mjs"
+import { generateCode } from "../dist/index.mjs"
 
 const DURATION_MS = 3000
 const LENGTHS = [32, 64, 128]
@@ -6,7 +6,7 @@ const LENGTHS = [32, 64, 128]
 for (const length of LENGTHS) {
   // Warm-up so the JIT has compiled the hot path.
   for (let i = 0; i < 5_000; i++) {
-    generateId(length)
+    generateCode(length)
   }
 
   let count = 0
@@ -15,7 +15,7 @@ for (const length of LENGTHS) {
 
   while (Date.now() < deadline) {
     for (let i = 0; i < 1_000; i++) {
-      generateId(length)
+      generateCode(length)
     }
 
     count += 1_000

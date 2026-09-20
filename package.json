@@ -1,7 +1,7 @@
 {
   "name": "@el-stone/random-code",
   "version": "1.0.0",
-  "description": "Fast, collision-resistant ID generator using time, machine fingerprinting, sequencing, and secure randomness with customizable length.",
+  "description": "Collision-resistant ID generator using time, machine fingerprinting, sequencing, and secure randomness with customizable length.",
   "type": "module",
   "main": "./dist/index.cjs",
   "files": [
@@ -33,7 +33,7 @@
     "identifier",
     "uid"
   ],
-  "author": "El Stone",
+  "author": "El Stone <randriamanampisoa.stone@gmail.com>",
   "license": "MIT",
   "engines": {
     "node": ">=18"
