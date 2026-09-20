@@ -1,0 +1,64 @@
+{
+  "name": "@el-stone/random-code",
+  "version": "1.0.0",
+  "description": "Fast, collision-resistant ID generator using time, machine fingerprinting, sequencing, and secure randomness with customizable length.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "bench": "npm run build && node bench/bench.mjs"
+  },
+  "keywords": [
+    "unique-id",
+    "id-generator",
+    "unique-identifier",
+    "collision-resistant",
+    "random-id",
+    "secure-id",
+    "timestamp-id",
+    "machine-id",
+    "distributed-id",
+    "base35",
+    "typescript",
+    "nodejs",
+    "npm-package",
+    "identifier",
+    "uid"
+  ],
+  "author": "El Stone",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "tsdown": "^0.23.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/el-stone/random-code.git"
+  },
+  "bugs": {
+    "url": "https://github.com/el-stone/random-code/issues"
+  },
+  "homepage": "https://github.com/el-stone/random-code#readme"
+}
